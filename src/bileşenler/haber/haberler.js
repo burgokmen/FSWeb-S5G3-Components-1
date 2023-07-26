@@ -139,6 +139,9 @@ function haberYapici(arr) {
   const button1 = document.createElement("button");
   button1.classList.add("expandButton");
   button1.textContent = "+";
+  button1.onclick = (event) => {
+    document.querySelector(".article").classList.toogle("article-open");
+  };
 
   div1.append(header2);
   div1.append(p1);
@@ -149,3 +152,5 @@ function haberYapici(arr) {
 
   return div1;
 }
+
+haberYapici(data);
