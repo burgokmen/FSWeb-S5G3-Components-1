@@ -90,11 +90,11 @@ const data = [
   },
 ];
 
-/*
+/* /*
   Adım 1: Haber oluşturmak için 'haberYapici' adında bir bileşen(component) oluşturun.
   Bileşeniniz, argümanı haberleri içeren dizi olarak alan bir fonksiyon olacak,
   ve aşağıdaki gibi görünen bir DOM düğümü döndürecek:
-
+/*  
   <div class="article">
     <h2>{haber başlığı}</h2>
     <p class="tarih">{haber tarihi}</p>
@@ -103,8 +103,9 @@ const data = [
 
     <button class="expandButton">+</button>
   </div>
+ */
 
-  Adım 2: Hala `haberYapici` içindeyiz, button.expandButton 'a bir click event dinleyici ekleyin.
+/* Adım 2: Hala `haberYapici` içindeyiz, button.expandButton 'a bir click event dinleyici ekleyin.
   Bu dinleyici div.article öğesine 'article-open' class'ını ekleyip/çıkaracak (toogle).
 
   Adım 3: Fonksiyonunuzdan bir öğe döndürmeyi unutmayın.
@@ -115,3 +116,36 @@ const data = [
   Adım 5: Veri dizisine yeni haber nesnesi eklemeyi deneyin. Diğer verilerle aynı yapıda olmasına dikkat edin.
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
+function haberYapici(arr) {
+  const div1 = document.createElement("div");
+  div1.setAttribute("class", "article");
+
+  const header2 = document.createElement("h2");
+  header2.textContent = arr.baslik;
+
+  const p1 = document.createElement("p");
+  p1.setAttribute("class", "tarih");
+  p1.textContent = arr.tarih;
+
+  const p2 = document.createElement("p");
+  p2.textContent = arr.ilkParagraf;
+
+  const p3 = document.createElement("p");
+  p3.textContent = arr.ikinciParagraf;
+
+  const p4 = document.createElement("p");
+  p4.textContent = arr.ucuncuParagraf;
+
+  const button1 = document.createElement("button");
+  button1.classList.add("expandButton");
+  button1.textContent = "+";
+
+  div1.append(header2);
+  div1.append(p1);
+  div1.append(p2);
+  div1.append(p3);
+  div1.append(p4);
+  div1.append(button1);
+
+  return div1;
+}
