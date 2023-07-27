@@ -139,9 +139,6 @@ function haberYapici(arr) {
   const button1 = document.createElement("button");
   button1.classList.add("expandButton");
   button1.textContent = "+";
-  button1.onclick = (event) => {
-    document.querySelector(".article").classList.toogle("article-open");
-  };
 
   div1.append(header2);
   div1.append(p1);
@@ -150,7 +147,40 @@ function haberYapici(arr) {
   div1.append(p4);
   div1.append(button1);
 
+  button1.onclick = () => {
+    div1.classList.toggle("article-open");
+  };
   return div1;
 }
 
-haberYapici(data);
+const haberler = document.querySelector(".articles");
+
+data.forEach((h) => {
+  const haber = haberYapici(h);
+  haberler.append(haber);
+});
+
+/* Data.forEach((product) => {
+  const card = generateProductCard(
+    product.img,
+    product.name,
+    product.description,
+    product.price
+  );
+
+  container.append(card);
+}); */
+
+/* const menu = `<div class="menu">
+  <ul>
+    ${menuElemanlari
+      .map((eleman) => {
+        return `<li>${eleman}</li>`;
+        // [<li>Gündem</li>, <li>Dünya</li>]
+      })
+      .join("")}
+      </ul>
+      </div>`; 
+      
+      // [<li>Gündem</li>, <li>Dünya</li>].join("") => <li>Gündem</li><li>Dünya</li>
+      */
